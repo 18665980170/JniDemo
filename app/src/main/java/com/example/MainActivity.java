@@ -1,13 +1,11 @@
-package com.example.myapplication;
+package com.example;
 
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.myapplication.aStringTest.Native;
-import com.example.myapplication.aStringTest.Native2;
-import com.example.myapplication.aStringTest.StaticNative;
+import com.example.myapplication.R;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -22,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onAStringTest();
+                onJniTestH();
             }
         });
 
@@ -40,8 +38,13 @@ public class MainActivity extends AppCompatActivity {
         String stringFromJNI2 = new Native2().stringFromJNI2();
         Log.d(TAG, "stringFromJNI2: " + stringFromJNI2);
 
-        String staticStringFromJNI = StaticNative.staticStringFromJNI();
+        String staticStringFromJNI = SecondNative.staticStringFromJNI();
         Log.d(TAG, "staticStringFromJNI: " + staticStringFromJNI);
+    }
+
+    void onJniTestH() {
+        String str = Native.jniTestH();
+        Log.d(TAG, "str: " + str);
     }
 
 

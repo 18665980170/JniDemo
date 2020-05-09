@@ -3,18 +3,17 @@
 #include <sstream>
 #include <iostream>
 #include <android/log.h>
-#include <random>
-#include "../log/log.h"
+#include "log/log.h"
 
 using namespace std;
 
 
 extern "C" JNIEXPORT jstring JNICALL
-Java_com_example_myapplication_aStringTest_StaticNative_staticStringFromJNI(
+Java_com_example_SecondNative_staticStringFromJNI(
         JNIEnv *env,
         jclass) {
 
-    char *hello = "abcd\n";
+    char *hello = const_cast<char *>("abcd\n");
 
     Log_i("%x %x %x", hello[0], hello[1], hello[2]);
     return env->NewStringUTF(hello);

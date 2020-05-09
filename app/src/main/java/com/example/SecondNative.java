@@ -1,6 +1,9 @@
-package com.example.myapplication.aStringTest;
+package com.example;
 
-public class StaticNative {
+/**
+ * 测试 打包多个so
+ */
+public class SecondNative {
     public static native String staticStringFromJNI();
 
     static {
